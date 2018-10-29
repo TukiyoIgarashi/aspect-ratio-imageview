@@ -1,5 +1,6 @@
 package dev.chuross.sample;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -33,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
             public void onGlobalLayout() {
                 imageView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 text.setText(String.format("w:%d x h:%d", imageView.getWidth(), imageView.getHeight()));
+            }
+        });
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, FullActivity.class));
             }
         });
     }
